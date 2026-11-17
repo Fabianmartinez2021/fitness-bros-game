@@ -1,0 +1,52 @@
+PulseLab - Resumen de plan
+==========================
+
+Usuario: fabian
+Sexo: M | Edad: 27 | Peso: 80.0 kg | Altura: 165.0 cm
+Días de entrenamiento: 3
+Cintura: 41.0 cm
+
+IMC: 29.4 (Sobrepeso)
+TMB: 1701 kcal
+Factor actividad: 1.4
+TDEE: 2339 kcal
+Objetivo: Déficit calórico / pérdida de grasa (-450 kcal)
+Calorías objetivo: 1889 kcal
+Proteína: 160 g | Grasas: 64 g | Carbohidratos: 168 g
+
+Cintura: Relación cintura/altura: 0.2. Por debajo de 0.5 suele considerarse un rango más favorable. Sigue siendo una estimación poblacional, no un diagnóstico.
+
+Rutina: Full Body 3 días
+Tres sesiones de cuerpo completo con énfasis en patrones compuestos. Deja al menos un día de descanso entre entrenamientos.
+
+Día 1 · Full Body A — Sentadilla y empuje horizontal
+  - Sentadilla con barra o goblet | 4 × 8-10 | descanso 120 s
+  - Press de banca o flexiones lastradas | 4 × 8-10 | descanso 90 s
+  - Remo con barra o mancuerna | 4 × 8-10 | descanso 90 s
+  - Press militar de pie | 3 × 10-12 | descanso 75 s
+  - Peso muerto rumano | 3 × 10 | descanso 90 s
+  - Plancha frontal | 3 × 40 s | descanso 45 s
+
+Día 2 · Full Body B — Bisagra de cadera y jalón
+  - Peso muerto convencional o trap bar | 4 × 5-6 | descanso 150 s
+  - Dominadas o jalón al pecho | 4 × 6-10 | descanso 90 s
+  - Press inclinado con mancuernas | 3 × 8-12 | descanso 90 s
+  - Zancadas caminando | 3 × 10/pierna | descanso 75 s
+  - Face pull | 3 × 15 | descanso 45 s
+  - Elevación de gemelos | 4 × 12-15 | descanso 45 s
+
+Día 3 · Full Body C — Unilateral y core
+  - Prensa o sentadilla búlgara | 4 × 10 | descanso 90 s
+  - Remo sentado o chest-supported | 4 × 10-12 | descanso 75 s
+  - Fondos o press declinado | 3 × 8-12 | descanso 90 s
+  - Hip thrust | 3 × 10-12 | descanso 75 s
+  - Elevaciones laterales | 3 × 12-15 | descanso 45 s
+  - Rueda abdominal o dead bug | 3 × 10-12 | descanso 45 s
+
+Menú diario propuesto
+- Desayuno: Avena proteica con fruta y huevo (60 g de avena + 155 g de yogur griego o 2-3 huevos + 103 g de fruta + 10-15 g de frutos secos.)
+- Almuerzo: Proteína magra, arroz y verdura (137 g de pollo, pescado o tofu + 155 g de arroz o quinoa cocidos + 172 g de verduras + 1 cucharada de aceite de oliva.)
+- Merienda: Snack de proteína y carbohidrato (26 g de whey o 129 g de cottage + 69 g de pan integral o fruta + un puñado pequeño de frutos secos.)
+- Cena: Plato completo más ligero en carbos (146 g de pescado, carne magra o legumbres + 189 g de patata, boniato o pasta + ensalada abundante y grasa de aceite o aguacate (~10 g).)
+
+Aviso: herramienta educativa y referencial. No sustituye consejo médico profesional.

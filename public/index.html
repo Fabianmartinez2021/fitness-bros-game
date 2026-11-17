@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Bros Game - Menú Principal</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="nintendo-bg">
+        <!-- Mancuernas bajadas para no tocar el formulario -->
+        <div class="floor-dumbbell dumbbell-1 animate-float-slow"><img src="/mancuerna.png" alt="Mancuerna"></div>
+        <div class="floor-dumbbell dumbbell-2 animate-float-delayed"><img src="/mancuerna.png" alt="Mancuerna"></div>
+        
+        <div class="scene-container">
+            
+            <div class="nintendo-card animate-pop-in">
+                
+                <!-- MENÚ PRINCIPAL -->
+                <div id="main-menu" class="menu-view active">
+                    <div class="card-header main-title-header">
+                        <img src="/titulo.png" alt="Fitness Bros Game" class="app-title-img">
+                    </div>
+                    
+                    <div class="menu-buttons-group">
+                        <button type="button" class="btn-solid" onclick="showView('game-form-view')">Jugar</button>
+                        <button type="button" class="btn-outline" onclick="showView('instructions-view')">Instrucciones</button>
+                        <button type="button" class="btn-outline" onclick="showView('about-view')">Acerca de</button>
+                    </div>
+                </div>
+
+                <!-- VISTA: INSTRUCCIONES -->
+                <div id="instructions-view" class="menu-view" style="display: none;">
+                    <div class="card-header">
+                        <img src="/titulo.png" alt="Fitness Bros Game" class="app-title-img-small">
+                        <h2>Instrucciones del Juego</h2>
+                    </div>
+                    <div class="info-content-box">
+                        <p><b>1. Tus Datos:</b> Completa el formulario de 6 pasos con tus datos corporales para calcular tu TDEE y macronutrientes.</p>
+                        <p><b>2. El Desafío:</b> Controla a tu personaje usando las flechas del teclado o moviendo el mouse.</p>
+                        <p><b>3. Atrapa y Esquiva:</b> Atrapa alimentos saludables ricos en proteína (Pollo, Huevo, Batido) para completar tu meta en 35 segundos.</p>
+                        <p><b>4. Cuidado con la Chatarra:</b> Evita la comida chatarra (Pizza, Hamburguesa, Dona). Si superas tus calorías límite, pierdes.</p>
+                        <p><b>5. Tu Rutina:</b> Obtén tu diagnóstico nutricional y genera una rutina de gimnasio personalizada (3, 5 o 7 días).</p>
+                    </div>
+                    <button type="button" class="btn-outline" onclick="showView('main-menu')" style="width: 100%; margin-top: 20px;">Volver al Menú</button>
+                </div>
+
+                <!-- VISTA: ACERCA DE -->
+                <div id="about-view" class="menu-view" style="display: none;">
+                    <div class="card-header">
+                        <img src="/titulo.png" alt="Fitness Bros Game" class="app-title-img-small">
+                        <h2>Acerca de la App</h2>
+                    </div>
+                    <div class="info-content-box">
+                        <p><b>Fitness Bros Game - Estilo Nintendo</b> es una plataforma interactiva que combina salud nutricional, entrenamiento físico y gamificación.</p>
+                        <p><b>Desarrollado con:</b> C++ (Servidor backend con <code>httplib</code>), HTML5 Canvas y CSS moderno.</p>
+                    </div>
+                    <button type="button" class="btn-outline" onclick="showView('main-menu')" style="width: 100%; margin-top: 20px;">Volver al Menú</button>
+                </div>
+
+                <!-- VISTA: FORMULARIO PASO A PASO (6 PASOS) -->
+                <div id="game-form-view" class="menu-view" style="display: none;">
+                    <div class="card-header">
+                        <img src="/titulo.png" alt="Fitness Bros Game" class="app-title-img-small">
+                        <span id="step-counter" class="step-counter">Paso 1 de 6</span>
+                    </div>
+
+                    <form id="fitness-form" action="/calcular" method="POST">
+                        
+                        <!-- PASO 1: Nombre -->
+                        <div class="form-step active" data-step="1">
+                            <label class="wizard-question">¿Cómo te llamas?</label>
+                            <p class="wizard-subtitle">Empecemos conociéndote un poco.</p>
+                            <div class="input-group">
+                                <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre aquí...">
+                            </div>
+                            <button type="button" class="btn-solid btn-next" onclick="nextStep(1)">Siguiente</button>
+                        </div>
+
+                        <!-- PASO 2: Sexo Biológico -->
+                        <div class="form-step" data-step="2">
+                            <label class="wizard-question">¿Cuál es tu sexo?</label>
+                            <p class="wizard-subtitle">Esto nos ayuda a calcular tus requerimientos con precisión.</p>
+                            
+                            <div class="avatar-selection-group">
+                                <label class="avatar-card">
+                                    <input type="radio" name="sexo" value="M" checked>
+                                    <div class="avatar-content">
+                                        <img src="/mario-head.png" alt="Masculino" class="avatar-img">
+                                        <span>Masculino</span>
+                                    </div>
+                                </label>
+
+                                <label class="avatar-card">
+                                    <input type="radio" name="sexo" value="F">
+                                    <div class="avatar-content">
+                                        <img src="/peach-head.png" alt="Femenino" class="avatar-img">
+                                        <span>Femenino</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn-outline" onclick="prevStep(2)">Atrás</button>
+                                <button type="button" class="btn-solid btn-next" onclick="nextStep(2)">Siguiente</button>
+                            </div>
+                        </div>
+
+                        <!-- PASO 3: Edad -->
+                        <div class="form-step" data-step="3">
+                            <label class="wizard-question">¿Cuál es tu edad?</label>
+                            <p class="wizard-subtitle">Introduce tu edad en años.</p>
+                            <div class="input-group">
+                                <input type="number" name="edad" required placeholder="Ej. 25">
+                            </div>
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn-outline" onclick="prevStep(3)">Atrás</button>
+                                <button type="button" class="btn-solid btn-next" onclick="nextStep(3)">Siguiente</button>
+                            </div>
+                        </div>
+
+                        <!-- PASO 4: Peso -->
+                        <div class="form-step" data-step="4">
+                            <label class="wizard-question">¿Cuánto pesas actualmente?</label>
+                            <p class="wizard-subtitle">Indica tu peso en kilogramos (kg).</p>
+                            <div class="input-group">
+                                <input type="number" step="0.1" name="peso" required placeholder="Ej. 70.0">
+                            </div>
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn-outline" onclick="prevStep(4)">Atrás</button>
+                                <button type="button" class="btn-solid btn-next" onclick="nextStep(4)">Siguiente</button>
+                            </div>
+                        </div>
+
+                        <!-- PASO 5: Estatura -->
+                        <div class="form-step" data-step="5">
+                            <label class="wizard-question">¿Cuál es tu estatura?</label>
+                            <p class="wizard-subtitle">Introduce tu altura en centímetros (cm) sin puntos.</p>
+                            <div class="input-group">
+                                <input type="number" step="1" min="100" max="250" oninput="this.value = this.value.replace(/[e\+\-\.]/gi, '');" name="estatura" required placeholder="Ej. 170">
+                            </div>
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn-outline" onclick="prevStep(5)">Atrás</button>
+                                <button type="button" class="btn-solid btn-next" onclick="nextStep(5)">Siguiente</button>
+                            </div>
+                        </div>
+
+                        <!-- PASO 6: Nivel de Actividad -->
+                        <div class="form-step" data-step="6">
+                            <label class="wizard-question">¿Cuál es tu nivel de actividad física?</label>
+                            <p class="wizard-subtitle">Selecciona el que mejor se adapte a tu semana.</p>
+                            <div class="activity-buttons-group">
+                                <label class="activity-chip">
+                                    <input type="radio" name="actividad" value="1.2">
+                                    <span>Sedentario <small>(Poco o sin ejercicio)</small></span>
+                                </label>
+                                
+                                <label class="activity-chip">
+                                    <input type="radio" name="actividad" value="1.55" checked>
+                                    <span>Moderado <small>(3-5 días/sem)</small></span>
+                                </label>
+                                
+                                <label class="activity-chip">
+                                    <input type="radio" name="actividad" value="1.9">
+                                    <span>Atleta <small>(6-7 días/sem)</small></span>
+                                </label>
+                            </div>
+                            <div class="wizard-buttons" style="margin-top: 24px;">
+                                <button type="button" class="btn-outline" onclick="prevStep(6)">Atrás</button>
+                                <button type="submit" class="btn-solid">Iniciar Desafío</button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <button type="button" class="btn-outline" onclick="showView('main-menu')" style="width: 100%; margin-top: 12px;">Volver al Menú Principal</button>
+                </div>
+
+            </div>
+
+            <!-- Mario entrando lento desde el lado derecho -->
+            <div class="mario-overlay-side animate-slide-from-side" id="mario-container-side">
+                <img src="/mario.png" alt="Mario Bros Characters" class="mario-img">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Audio para el efecto de clic -->
+    <audio id="hoverSound"><source src="/hover.mp3" type="audio/mpeg"></audio>
+
+    <script>
+        const clickSound = document.getElementById('hoverSound');
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play().catch(e => {});
+            });
+        });
+
+        function showView(viewId) {
+            document.querySelectorAll('.menu-view').forEach(view => {
+                view.style.display = 'none';
+            });
+            document.getElementById(viewId).style.display = 'block';
+        }
+
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function updateWizard() {
+            document.querySelectorAll('.form-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+            document.getElementById('step-counter').innerText = `Paso ${currentStep} de ${totalSteps}`;
+        }
+
+        function nextStep(step) {
+            const currentInput = document.querySelector(`.form-step[data-step="${step}"] input[required]`);
+            if (currentInput && !currentInput.value) {
+                currentInput.style.borderColor = '#dc2626';
+                currentInput.focus();
+                return;
+            }
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateWizard();
+            }
+        }
+
+        function prevStep(step) {
+            if (currentStep > 1) {
+                currentStep--;
+                updateWizard();
+            }
+        }
+    </script>
+</body>
+</html>
